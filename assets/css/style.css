@@ -81,3 +81,125 @@ body {
     grid-column: span 2;
     justify-items: center;
 }
+
+.layout {
+    margin-top: 40px;
+}
+
+.layout > * {
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+}
+.layout {
+    margin-top: 40px;
+
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 16px;
+
+    grid-template-areas:
+        "cabecalho cabecalho"
+        "menu principal"
+        "rodape rodape";
+}
+.layout-cabecalho {
+    grid-area: cabecalho;
+}
+
+.layout-menu {
+    grid-area: menu;
+}
+
+.layout-principal {
+    grid-area: principal;
+}
+
+.layout-rodape {
+    grid-area: rodape;
+}
+.acoes-layout {
+    display: flex;
+    gap: 8px;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+    margin-top: 40px;
+}
+
+.dashboard > * {
+    min-width: 0;
+    margin: 0;
+    padding: 24px;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+.dashboard .dashboard-titulo {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.dashboard h3 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.dashboard p {
+    line-height: 1.5;
+}
+
+.dashboard p:last-child {
+    margin-bottom: 0;
+}
+
+.indicador {
+    text-align: center;
+}
+
+.indicador-valor {
+    margin: 0;
+    color: #2563eb;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+/* Primeira versão: posicionamento pelas linhas da grade. */
+.dashboard-linhas .dashboard-titulo {
+    grid-column: 1 / -1;
+}
+
+.dashboard-linhas .indicador {
+    grid-column: span 1;
+}
+
+.dashboard-linhas .dashboard-principal {
+    grid-column: 1 / 4;
+}
+
+.dashboard-linhas .dashboard-secundaria {
+    grid-column: 4 / 5;
+}
+
+/* Segunda versão: o mapa descreve as mesmas três linhas. */
+.dashboard-areas {
+    grid-template-areas:
+        "titulo titulo titulo titulo"
+        "vendas receita clientes pedidos"
+        "principal principal principal secundaria";
+}
+
+.dashboard-areas .dashboard-titulo { grid-area: titulo; }
+.dashboard-areas .indicador-vendas { grid-area: vendas; }
+.dashboard-areas .indicador-receita { grid-area: receita; }
+.dashboard-areas .indicador-clientes { grid-area: clientes; }
+.dashboard-areas .indicador-pedidos { grid-area: pedidos; }
+.dashboard-areas .dashboard-principal { grid-area: principal; }
+.dashboard-areas .dashboard-secundaria { grid-area: secundaria; }
